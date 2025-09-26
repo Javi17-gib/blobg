@@ -13,4 +13,7 @@ class UsersController extends Controller
         //dd($data);
         return view ("admin.users")->with('usuarios',$data);
     }
+    public function createUsers(){
+        dd("Si jala tu");
+    }
 }
