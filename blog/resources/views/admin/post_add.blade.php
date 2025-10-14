@@ -1,4 +1,5 @@
 @extends('admin.layouds.main')
+
 @section('contenido')
 <h1>Agregar Posts</h1>
 
@@ -30,7 +31,7 @@
     
     <div class="form-group">
         <label for="file">Img</label>
-        <input  type="file" name="image" id="file" class="form-control">
+        <input  type="file" name="img" id="file" class="form-control">
     </div>
     <div class="form-group">
         <label for="category_id" >Category</label>
@@ -40,7 +41,7 @@
             @endforeach
         </select>
     </div>
-    <input type="text" name="content" id="content">
+    <input type="hidden" name="content" id="content">
     <div id="editor">
         <p><strong>Hello World!</strong></p>
         <p>Some Initial<strong>Bold</strong>text</p>
@@ -50,6 +51,19 @@
    </div>
     
 </form>
-</div>
+
+@section("scripts")
+<script>
+  const quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+  const form = document.querySelector('#form');
+  form.onsubmit = function() {
+    // Copiar el contenido HTML de Quill al input oculto
+    const contentInput = document.querySelector('input[name=content]');
+    contentInput.value = quill.root.innerHTML;
+  };
+</script>
+@endsection
 
 @endsection

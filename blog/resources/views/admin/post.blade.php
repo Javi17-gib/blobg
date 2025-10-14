@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between">
         <h1>Post</h1>
         <div>
-            <a href="/dashboard/post/actions/add" class="btn btn-dark" >Agregar</a>
+            <a href="/dashboard/post/actions/add" class="btn btn-blue" >Agregar</a>
         </div>
     </div>
     <div class="row">
